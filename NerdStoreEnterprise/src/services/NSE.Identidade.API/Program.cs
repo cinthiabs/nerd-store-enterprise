@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using NSE.Identidade.API.Models;
+using NSE.Identidade.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
