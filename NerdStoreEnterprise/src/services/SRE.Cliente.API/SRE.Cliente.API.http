@@ -1,0 +1,6 @@
+@SRE.Cliente.API_HostAddress = http://localhost:5162
+
+GET {{SRE.Cliente.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
