@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NSE.Identidade.API.Models;
 
 namespace NSE.Identidade.API.Controllers;
 
-[Route("api/identidade")]
 [ApiController]
+[Route("api/identidade")]
 public class AuthController : Controller
 {
     private readonly UserManager<IdentityUser> _userManager;

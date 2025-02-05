@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using NSE.Identidade.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,13 +18,31 @@ builder.Services.AddDefaultIdentity<IdentityUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "NerdStore",
+        Description = "Esta API é responsável por fazer o gerenciamento da loja NerdStore",
+        Contact = new OpenApiContact
+        {
+            Name = "Cinthia Barbosa",
+            Email = "cinthiabarbosa@example.com"
+        }
+    });
+});
+
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+});
+
+;
+
 
 app.UseHttpsRedirection();
 
